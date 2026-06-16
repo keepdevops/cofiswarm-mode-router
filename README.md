@@ -1,20 +1,16 @@
 # cofiswarm-mode-router
 
-Cofiswarm component: `mode-router`.
+Mode plugin service (router) — HTTP execute endpoint for `cofiswarm-dispatch`.
 
-- Layout: [REPO-STANDARD-LAYOUT](https://github.com/keepdevops/cofiswarmdev/blob/main/docs/REPO-STANDARD-LAYOUT.md)
-- Migration: [MIGRATION-SPRINTS](https://github.com/keepdevops/cofiswarmdev/blob/main/docs/MIGRATION-SPRINTS.md)
+- SDK: [cofiswarm-mode-sdk](../cofiswarm-mode-sdk)
+- Legacy C++: `legacy/cpp/`
+- Config gate: `dispatch_url` + `slot_manager_url` in `test/standalone/etc/cofiswarm/mode-router/mode-router.yaml`
 
-## FHS paths
-
-| Path | Purpose |
-|------|---------|
-| `/etc/cofiswarm/mode-router/` | config |
-| `/var/lib/cofiswarm/mode-router/` | state |
-| `/var/log/cofiswarm/mode-router/` | logs |
-
-## Test
+## Run
 
 ```bash
-./test/scripts/assert-layout.sh mode-router
+make build
+./bin/cofiswarm-mode-router -config test/standalone/etc/cofiswarm/mode-router/mode-router.yaml
 ```
+
+Default listen: `:8024`
